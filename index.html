@@ -24,7 +24,9 @@ Shahid Osman Patwary Short Pitch Cricket Tournament</h1>
             </ul>
         </section>
 
-        <form action="https://script.google.com/macros/s/AKfycbxBLEVNUCGojgbGJSok8tauEOAH2okwxUPtjrRb9dAIjVxnpervz_9mdLPR31_0x_wz/exec" method="POST">
+        <form action="https://script.google.com/macros/s/AKfycbxBLEVNUCGojgbGJSok8tauEOAH2okwxUPtjrRb9dAIjVxnpervz_9mdLPR31_0x_wz/exec" method="POST"
+             name="turna-form"
+            >
             
             <div class="form-group">
                 <label for="team-name">Team Name *</label>
@@ -95,5 +97,23 @@ Shahid Osman Patwary Short Pitch Cricket Tournament</h1>
            
         </form>
     </div>
+    <script>
+        const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxBLEVNUCGojgbGJSok8tauEOAH2okwxUPtjrRb9dAIjVxnpervz_9mdLPR31_0x_wz/exec";
+  
+        const form = document.forms["turna-form"];
+  
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          fetch(scriptURL, { method: "POST", body: new FormData(form) })
+            .then((response) =>
+              alert("Thank you! your form is submitted successfully.")
+            )
+            .then(() => {
+              window.location.reload();
+            })
+            .catch((error) => console.error("Error!", error.message));
+        });
+      </script>
 </body>
 </html>
